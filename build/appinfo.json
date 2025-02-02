@@ -1,0 +1,30 @@
+{
+    "targetPlatforms": [
+        "aplite", 
+        "basalt", 
+        "chalk", 
+        "diorite"
+    ], 
+    "displayName": "FuzzyTime", 
+    "name": "FuzzyTime", 
+    "messageKeys": {
+        "dummy": 10000
+    }, 
+    "companyName": "George Yarwood", 
+    "enableMultiJS": true, 
+    "versionLabel": "1.0", 
+    "capabilities": [], 
+    "sdkVersion": "3", 
+    "appKeys": {
+        "dummy": 10000
+    }, 
+    "longName": "FuzzyTime", 
+    "shortName": "FuzzyTime", 
+    "watchapp": {
+        "watchface": true
+    }, 
+    "resources": {
+        "media": []
+    }, 
+    "uuid": "cd312b6c-bdaa-41b6-9983-a51db9279af8"
+}
