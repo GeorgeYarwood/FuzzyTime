@@ -89,7 +89,7 @@ static void update_time(struct tm* tick_time)
 		if (min <= 10)
 		{
 			snprintf(hrPrefixBuf, BUF_SIZE, "Just gone");
-			snprintf(hrBuf, BUF_SIZE, "%i", hr);
+			snprintf(hrBuf, BUF_SIZE, "%i", hr == 0 ? 12 : hr);
 
 			text_layer_set_font(hr_prefix_text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
 			memset(minPrefixBuf, 0, BUF_SIZE);
@@ -99,10 +99,12 @@ static void update_time(struct tm* tick_time)
 			//char minPrfxBuf[20];
 			snprintf(hrPrefixBuf, BUF_SIZE, "Around");
 
+			bool zeroFix = true;
+
 			//Round to 15, 30, 45
 			if (min < 25)
 			{
-				snprintf(minPrefixBuf, BUF_SIZE, "Quater past");
+				snprintf(minPrefixBuf, BUF_SIZE, "Quarter past");
 			}
 			else if (min <= 40)
 			{
@@ -110,13 +112,14 @@ static void update_time(struct tm* tick_time)
 			}
 			else
 			{
-				snprintf(minPrefixBuf, BUF_SIZE, "Quater to");
+				snprintf(minPrefixBuf, BUF_SIZE, "Quarter to");
 				++hr;
+				zeroFix = false;
 			}
 
 			text_layer_set_font(hr_prefix_text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_14_BOLD));
 
-			snprintf(hrBuf, BUF_SIZE, "%i", hr);
+			snprintf(hrBuf, BUF_SIZE, "%i", (zeroFix && hr == 0) ? 12 : hr);
 		}
 		else
 		{
